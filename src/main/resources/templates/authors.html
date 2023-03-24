@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Spring Framework Certification</title>
+</head>
+<body>
+
+    <h1>List of Authors</h1>
+
+    <table>
+
+        <tr>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Books</th>
+        </tr>
+
+        <tr th:each="author : ${authors}">
+            <td th:text="${author.firstname}"></td>
+            <td th:text="${author.lastname}"></td>
+            <td th:each="book : ${author.books}">
+                    <p th:text="${book.getTitle()}"></p>
+            </td>
+        </tr>
+
+    </table>
+
+</body>
+</html>
